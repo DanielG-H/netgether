@@ -14,36 +14,36 @@
 <body>
     <main>
         <header>
-			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-				<div class="container-fluid">
-					<a class="navbar-brand" href="#">NetGether</a>
-					<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-						data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false"
-						aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse" id="navbarColor01">
-						<ul class="navbar-nav me-auto">
-							<li class="nav-item">
-								<a class="nav-link text-dark" onclick="location.href='index.html';">Home</a>
-							</li>
-						</ul>
-						<ul class="navbar-nav me-sm2">
-							<li class="nav-item fw-bold">
-								<a class="nav-link" onclick="location.href='sign_up.html';">Sign Up</a>
-							</li>
-							<li class="nav-item fw-bold">
-								<a class="nav-link" onclick="location.href='sign_in.html';">Sign In</a>
-							</li>
-						</ul>
-						<form class="d-flex">
-							<input class="form-control me-sm-2" type="search" placeholder="Search">
-							<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-						</form>
-					</div>
-				</div>
-			</nav>
-		</header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">NetGether</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarColor01">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" onclick="location.href='index.html';">Home</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav me-sm2">
+                            <li class="nav-item fw-bold">
+                                <a class="nav-link" onclick="location.href='sign_up.html';">Sign Up</a>
+                            </li>
+                            <li class="nav-item fw-bold">
+                                <a class="nav-link" onclick="location.href='sign_in.html';">Sign In</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex">
+                            <input class="form-control me-sm-2" type="search" placeholder="Search">
+                            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </header>
         <div class="container">
             <section class="h-100 gradient-form" style="background-color: #eee;">
                 <div class="container py-5 h-100">
@@ -61,7 +61,7 @@
                                                 <h4 class="mt-1 mb-5 pb-1">We are <b>NetGether</b></h4>
                                             </div>
 
-                                            <form method="post">
+                                            <form method="post" id="signIn" action="../room/chatroom.html">
                                                 <p>Please login to your account</p>
 
                                                 <div class="form-outline mb-4">
@@ -78,7 +78,8 @@
                                                 </div>
 
                                                 <div class="text-center pt-1 mb-5 pb-1">
-                                                    <button type="submit" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" onclick="location.href='room/chatroom.html';">
+                                                    <button type="submit"
+                                                        class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3">
                                                         Log
                                                         in
                                                     </button>
@@ -86,7 +87,9 @@
 
                                                 <div class="d-flex align-items-center justify-content-center pb-4">
                                                     <p class="mb-0 me-2">Don't have an account?</p>
-                                                    <a class="btn btn-outline-danger" onclick="location.href='sign_up.html';" role="button">Create new</a>
+                                                    <a class="btn btn-outline-danger"
+                                                        onclick="location.href='sign_up.html';" role="button">Create
+                                                        new</a>
                                                 </div>
 
                                             </form>
