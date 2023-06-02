@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign In - NetGether</title>
-    <link rel="stylesheet" href="../wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../wwwroot/lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../wwwroot/css/bootstrap_yeti_theme.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
 
@@ -25,15 +25,15 @@
 					<div class="collapse navbar-collapse" id="navbarColor01">
 						<ul class="navbar-nav me-auto">
 							<li class="nav-item">
-								<a class="nav-link text-dark" onclick="window.location-'index.html';">Home</a>
+								<a class="nav-link text-dark" onclick="location.href='index.html';">Home</a>
 							</li>
 						</ul>
 						<ul class="navbar-nav me-sm2">
 							<li class="nav-item fw-bold">
-								<a class="nav-link" onclick="window.location-'sign_up.html';">Sign Up</a>
+								<a class="nav-link" onclick="location.href='sign_up.html';">Sign Up</a>
 							</li>
 							<li class="nav-item fw-bold">
-								<a class="nav-link" onclick="window.location-'log_in.html';">Sign In</a>
+								<a class="nav-link" onclick="location.href='sign_in.html';">Sign In</a>
 							</li>
 						</ul>
 						<form class="d-flex">
@@ -78,8 +78,7 @@
                                                 </div>
 
                                                 <div class="text-center pt-1 mb-5 pb-1">
-                                                    <button type="submit"
-                                                        class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3">
+                                                    <button type="submit" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" onclick="location.href='room/chatroom.html';">
                                                         Log
                                                         in
                                                     </button>
@@ -87,7 +86,7 @@
 
                                                 <div class="d-flex align-items-center justify-content-center pb-4">
                                                     <p class="mb-0 me-2">Don't have an account?</p>
-                                                    <a class="btn btn-outline-danger" role="button">Create new</a>
+                                                    <a class="btn btn-outline-danger" onclick="location.href='sign_up.html';" role="button">Create new</a>
                                                 </div>
 
                                             </form>
