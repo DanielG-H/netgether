@@ -1,5 +1,4 @@
-﻿<style>
-body {
+﻿<style>body {
     font-family: "Lato", sans-serif;
     background-color: #e1e5f2;
 }
@@ -17,26 +16,26 @@ body {
     padding-top: 60px;
 }
 
-    .sidebar a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #bfdbf7;
-        display: block;
-        transition: 0.3s;
-    }
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #bfdbf7;
+    display: block;
+    transition: 0.3s;
+}
 
-        .sidebar a:hover {
-            color: #f1f1f1;
-        }
+.sidebar a:hover {
+    color: #f1f1f1;
+}
 
-    .sidebar .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-    }
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
 
 .chat {
     height: 100%;
@@ -51,26 +50,26 @@ body {
     padding-top: 60px;
 }
 
-    .chat a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #bfdbf7;
-        display: block;
-        transition: 0.3s;
-    }
+.chat a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #bfdbf7;
+    display: block;
+    transition: 0.3s;
+}
 
-        .chat a:hover {
-            color: #f1f1f1;
-        }
+.chat a:hover {
+    color: #f1f1f1;
+}
 
-    .chat .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-    }
+.chat .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
 
 .openbtn {
     font-size: 20px;
@@ -81,9 +80,9 @@ body {
     border: none;
 }
 
-    .openbtn:hover {
-        background-color: #444;
-    }
+.openbtn:hover {
+    background-color: #444;
+}
 
 #main {
     transition: margin-left .5s;
@@ -91,15 +90,12 @@ body {
 }
 
 #button-send {
-    margin-top: 7px
+    margin-top: 7px;
 }
 
 #button-attach-file {
-    margin-top: 7px
+    margin-top: 7px;
 }
-
-
-/*////////////*/ /*///[  Dock  ]///*/ /*////////////*/
 
 .dockbg {
     position: fixed;
@@ -120,34 +116,27 @@ body {
     line-height: 100px;
 }
 
-    .dock img {
-        display: inline-block;
-        vertical-align: bottom;
-        height: 50%;
-        padding: 0 5px;
-        /* + your animation properties */
-    }
+.dock img {
+    display: inline-block;
+    vertical-align: bottom;
+    height: 50%;
+    padding: 0 5px;
+    /* + your animation properties */
+}
 
-
-        .dock img:hover {
-            height: 100%;
-        }
-
-/*////////////*/ /*////////////*/ /*////////////*/
-
-
+.dock img:hover {
+    height: 100%;
+}
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-(max-height: 450px) {
-    .sidebar
+@media (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
 
-{
-    padding-top: 15px;
+    .sidebar a {
+        font-size: 18px;
+    }
 }
 
-.sidebar a {
-    font-size: 18px;
-}
-
-}
 </style>
