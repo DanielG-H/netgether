@@ -1,90 +1,67 @@
 ﻿<!DOCTYPE html>
-<html>
-
-<head>
+<html><head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chatroom - NetGether</title>
-    <link rel="stylesheet" href="../wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../wwwroot/css/room.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
+    <link href="chat.css" rel="stylesheet">
+    <link href="shared.css" rel="stylesheet">
+    <link rel="stylesheet" href="../wwwroot/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../wwwroot/css/room.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 </head>
 
 <body>
     <main>
-        <div id="mySidebar" class="sidebar">
+        <div id="mySidebar" class="sidebar" style="width: 250px;">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-            <a href="#">Video</a>
-            <a href="#">Audio</a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="../home/index.html" class="btn btn-danger justify-content-center"><i
-                    class="bi bi-door-closed">&nbsp; Log
-                    Out</i></a>
+            <ul class="userlistbox" style="height: 660px;margin-top: 40px;"></ul>
+            <a href="../home/index.html" class="btn btn-danger justify-content-center"><i class="bi bi-door-closed">&nbsp; Log
+                Out</i></a>
         </div>
-        <div id="myChat" class="chat">
+        <div id="myChat" class="chat" style="width: 450px;">
             <a href="javascript:void(0)" class="closebtn" onclick="closeChat()">×</a>
             <a href="#">Chat</a>
             <div class="row d-flex justify-content-center">
                 <div class="col-md-2 col-lg-11">
                     <div class="card shadow-0 border" style="background-color: #f0f2f5;">
                         <div class="card-body p-4">
-                            <div class="card mb-4">
-                                <div class="card-body">
-                                    <p>Type your note, and hit enter to add it</p>
+                            <div class="chatbox" style="
+    height: 600px;
+"></div>
+                            <div class="empty-container"></div>
+                            <div class="chat-controls" style="padding-top: 0px;height: 60px;padding-bottom: 0px;display: flex;flex-direction: column;justify-content: flex-end;">
+    Chat:<br>
+    <input id="text" type="text" name="text" size="100" maxlength="256" placeholder="Say something meaningful..." autocomplete="off" onkeyup="handleKey(event)" disabled="">
+    <input type="button" id="send" name="send" value="Send" onclick="handleSendButton()" disabled="">
+</div>
 
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex flex-row align-items-center">
-                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp"
-                                                alt="avatar" width="25" height="25" />
-                                            <p class="small mb-0 ms-2">Martha</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card mb-4">
-                                <div class="card-body">
-                                    <p>Type your note, and hit enter to add it</p>
-
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex flex-row align-items-center">
-                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp"
-                                                alt="avatar" width="25" height="25" />
-                                            <p class="small mb-0 ms-2">Johny Blaze</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card mb-4">
-                                <div class="card-body">
-                                    <p>Type your note, and hit enter to add it</p>
-
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex flex-row align-items-center">
-                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).webp"
-                                                alt="avatar" width="25" height="25" />
-                                            <p class="small mb-0 ms-2">Mary Jane</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-outline">
+                            <!-- <div class="form-outline">
                                 <input type="text" id="addComment" class="form-control" placeholder="Type comment..." />
                                 <button id="sendButton" class="btn btn-primary mb-8">+ Add </button>
                                 <file id="button-attach-file" type="button" class="btn btn-secondary"> <i
                                         class="bi bi-paperclip">File</i></file>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="main">
-            <h2>Body...</h2>
-            <p>Work in progress...</p>
+        <div id="main" style="margin-right: 450px; margin-left: 250px;">
+
+            <div class="infobox">
+                <p>Click a username in the user list to ask them to enter a one-on-one video chat
+                    with you.</p>
+                <p>Enter a username: <input id="name" type="text" maxlength="12" required="" autocomplete="username" inputmode="verbatim" placeholder="Username">
+                    <input type="button" name="login" value="Log in" onclick="connect()">
+                </p>
+            </div>
+            <div class="camerabox">
+                <video id="received_video" autoplay=""></video>
+                <video id="local_video" autoplay="" muted=""></video>
+                <button id="hangup-button" onclick="hangUpCall();" role="button" disabled="">
+                    Hang Up
+                </button>
+            </div>
         </div>
 
         <div class="dockbg"></div>
@@ -94,17 +71,7 @@
         </div>
 
     </main>
-
-
     <!-- webRTC API -->
-
-    <!-- bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
-
-    <!-- signalR -->
-    <script src="../wwwroot/js/signalr/dist/browser/signalr.js"></script>
     <script type="text/javascript">
         function openNav() {
             document.getElementById("mySidebar").style.width = "250px";
@@ -126,102 +93,9 @@
             document.getElementById("myChat").style.width = "0";
             document.getElementById("main").style.marginRight = "0";
         }
-
-        "use strict";
-
-        var connection = new signalR.HubConnectionBuilder().withUrl("/Room/Index").build();
-
-        connection.start().then(function () {
-            console.log("SignalR connected");
-        }).catch(function (error) {
-            console.error("SignalR connection error: " + error);
-        });
-
-        // sends a comment
-        function sendComment(userId, message) {
-            connection.invoke("SendComment", userId, message).catch(function (err) {
-                console.error(err.toString());
-            });
-        }
-
-        function isBlank(str) {
-            return (!str || /^\s*$/.test(str));
-        }
-
-        // handles sending a comment and is called on Enter or on Click
-        function handleSendComment() {
-            var comment = document.getElementById("addComment").value;
-            if (!isBlank(comment)) {
-                console.log("Comment to send: " + comment);
-                // sendComment(comment);
-                document.getElementById("addComment").value = "";
-            }
-        }
-
-        // add event listener to button click
-        var sendButton = document.getElementById("sendButton");
-        sendButton.addEventListener("click", handleSendComment);
-
-        // add event listener to Enter key press
-        var messageInput = document.getElementById("addComment");
-        messageInput.addEventListener("keydown", function (event) {
-            if (event.key === "Enter") {
-                event.preventDefault();
-                handleSendComment();
-            }
-        })
-
-        function displayComment(comment) {
-            var messageElement = document.createElement("p");
-            var username = "";
-            console.log("Displayed comment: " + comment + "\nUsername: " + username);
-            var commentContainer = document.createElement("div");
-            commentContainer.classList.add("card", "mb-4");
-
-            var cardBodyElement = document.createElement("div");
-            cardBodyElement.classList.add("card-body");
-
-            var messageElement = document.createElement("p");
-            messageElement.textContent = comment;
-
-            var usernameElement = document.createElement("p");
-            usernameElement.classList.add("small", "mb-0", "ms-2");
-            usernameElement.textContent = username;
-
-            var avatarElement = document.createElement("img");
-            avatarElement.src = "../wwwwroot/img/user_photo.svg";
-            avatarElement.alt = "avatar";
-            avatarElement.width = 25;
-            avatarElement.height = 25;
-
-            var flexContainerElement = document.createElement("div");
-            flexContainerElement.classList.add("d-flex", "justify-content-between");
-
-            var flexRowElement = document.createElement("div");
-            flexRowElement.classList.add("d-flex", "flex-row", "align-items-center");
-
-            flexRowElement.appendChild(avatarElement);
-            flexRowElement.appendChild(usernameElement);
-
-            flexContainerElement.appendChild(flexRowElement);
-
-            cardBodyElement.appendChild(messageElement);
-            cardBodyElement.appendChild(flexContainerElement);
-
-            commentContainer.appendChild(cardBodyElement);
-
-            var commentBox = document.querySelector("#myChat .form-outline");
-            if (commentBox && commentBox.parentNode) {
-                commentBox.parentNode.insertBefore(commentContainer, commentBox);
-            }
-        }
-
-        connection.on("ReceiveComment", function (comment) {
-            // handle the received comment
-            console.log("Received comment: " + comment);
-            displayComment(comment);
-        });
     </script>
-</body>
+    <script type="text/javascript" src="chatclient.js"></script>
+    <script src="adapter.js"></script>
 
-</html>
+
+</body></html>
